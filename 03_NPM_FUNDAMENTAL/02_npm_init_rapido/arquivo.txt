@@ -1,0 +1,5 @@
+use o comando: 
+    npm init -y
+
+    - Esse comando cria um repositório de forma rápida respondendo sim
+    para todas as perguntas.
