@@ -47,8 +47,10 @@ router.post('/creatingUser', (req, res) => {
 function authenticatingUser(user, password) {
   const account = getUser(user)
 
-  if (fs.existsSync(`accounts/${user}.json` && account.password === password)) {
-    return true
+  if (fs.existsSync(`accounts/${user}.json`)) {
+    if(account.password == password){
+      return true
+    }
   }
   else {
     return false
