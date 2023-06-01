@@ -1,13 +1,12 @@
 {
-  "name": "09_colocando_Css",
+  "name": "11_tarefa03",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js localhost 3000",
+    "server": "nodemon ./index.js localhost 5000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {

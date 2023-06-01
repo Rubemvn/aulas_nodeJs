@@ -1,10 +1,10 @@
 const express = require('express')
-const port = 3000
-const app = express()
-
 const path = require('path')
+const app = express()
+const loginRoutes = require('./users')
 
-const usersRoutes = require('./users')
+const port = 5000
+
 
 app.use(
   express.urlencoded({
@@ -18,12 +18,12 @@ app.use(express.static('public'))
 
 const basePath = path.join(__dirname, 'templates')
 
-app.use("/users", usersRoutes)
+app.use('/users', loginRoutes)
 
-app.get('/', (req, res) => {
+app.get('/', (req, res)=> {
   res.sendFile(`${basePath}/index.html`)
 })
 
-app.listen(port, () => {
-  console.log(`The server is runing on port: ${port}`)
+app.listen(port, (req, res)=> {
+  console.log(`The server is running on port: ${port}`)
 })
