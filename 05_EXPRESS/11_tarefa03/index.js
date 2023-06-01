@@ -24,6 +24,10 @@ app.get('/', (req, res)=> {
   res.sendFile(`${basePath}/index.html`)
 })
 
-app.listen(port, (req, res)=> {
+app.use((req, res, next)=>{
+  res.status(404).sendFile(`${basePath}/404.html`)
+})
+
+app.listen(port, ()=> {
   console.log(`The server is running on port: ${port}`)
 })

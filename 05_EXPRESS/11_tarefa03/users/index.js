@@ -23,6 +23,7 @@ router.get('/add', (req, res) => {
 router.post('/authenticating', (req, res) => {
   const user = req.body.user
   const password = req.body.password
+  const userAccount = getUser(user)
 
   if (authenticatingUser(user, password)) {
     res.status(200).sendFile(`${basePath}/logged.html`)
@@ -33,9 +34,12 @@ router.post('/authenticating', (req, res) => {
 
 router.post('/creatingUser', (req, res) => {
   const user = req.body.user
+  const name = req.body.name
+  const surname = req.body.surname
+  const email = req.body.email
   const password = req.body.password
 
-  if(!createUser(user, password)){
+  if (!createUser(user, name, surname, email, password)) {
     res.sendFile(`${basePath}/createuser.html`)
   } else {
     res.sendFile(`${basePath}/login.html`)
@@ -48,13 +52,14 @@ function authenticatingUser(user, password) {
   const account = getUser(user)
 
   if (fs.existsSync(`accounts/${user}.json`)) {
-    if(account.password == password){
+    if (account.password == password) {
       return true
     }
   }
   else {
     return false
   }
+
 }
 
 // pega o arquivo com dados do usuário
@@ -68,7 +73,7 @@ function getUser(user) {
 }
 
 // cria um novo usuário
-function createUser(user, password) {
+function createUser(user, name, surname, email, password) {
 
   if (!fs.existsSync(`accounts`)) {
     fs.mkdirSync('accounts')
@@ -79,7 +84,13 @@ function createUser(user, password) {
   } else {
     fs.writeFileSync(
       `accounts/${user}.json`,
-      `{"password": ${password}}`,
+      `{
+        "user": "${user}",
+        "name": "${name}",
+        "surname": "${surname}",
+        "email": "${email}",
+        "password": "${password}"
+      }`,
       (err) => {
         console.log(err)
       }
