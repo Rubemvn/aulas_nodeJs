@@ -6,22 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-  <h1>Login</h1>
-  <form action="/users/authenticating" method="post">
-    <div>
-      <input type="text" name="user" placeholder="Digite seu usuário">
-    </div>
-    <div>
-      <input type="password" name="password" placeholder="Digite sua senha">
-    </div>
-    <div>
-      <input type="submit">
-    </div>
-  </form>
-  <a href="/users/add">Criar conta</a>
+  <div class="content">
+
+    <h1>Login</h1>
+    <form action="/users/authenticating" method="post">
+      <div>
+        <input type="text" name="user" placeholder="Digite seu usuário">
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="Digite sua senha">
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+    </form>
+    <a href="/users/add">Criar conta</a>
+  </div>
 </body>
 
 </html>
