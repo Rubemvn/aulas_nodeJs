@@ -1,13 +1,11 @@
 <h1>Dashboard</h1>
-{{#if approved}}
-<p>Seu cadastro foi aproado</p>
-{{else}}
-<p>Cadastro não aprovado</p>
-{{/if}}
-{{#if auth}}
-<h1>Olá, galerinha que utiliza o handlebars</h1>
-<h2>Meu nome é {{user.name}} {{user.surname}} e tenho {{user.age}} anos de idade</h2>
-<h3>Sobre mim</h3>
-<p>{{aboutUs}}</p>
-<a href="/">voltar</a>
-{{/if}}
+
+<h2>{{frase}}</h2>
+
+<ul>
+  {{#each items}}
+  <li> ID: {{this.id}} - {{this.item}}</li>
+  {{/each}}
+</ul>
+
+<a href="/">Voltar</a>

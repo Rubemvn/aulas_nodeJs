@@ -8,18 +8,25 @@ app.engine('.hbs', exphbs.engine({ extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
 app.get('/dashboard', (req, res) => {
-  const user = {
-    name: 'Rúbem',
-    surname: 'Vieira',
-    age: 21
-  }
-  const auth = false
 
-  const approved = false
-  
-  const aboutUs = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  const items = [
+    {
+      id: "h8s1d1fhj2",
+      item: "Banana"
+    },
+    {
+      id: "k5j6h7gh34",
+      item: "Maçã"
+    },
+    {
+      id: "ghj3g0g5s4",
+      item: "Tangerina"
+    },
+  ]
 
-  res.render('dashboard', { user , aboutUs, auth, approved})
+  const frase = "Esses são os itens de sua frutaria"
+
+  res.render('dashboard', {items, frase})
 })
 
 app.get('/', (req, res) => {
