@@ -1,0 +1,18 @@
+<h1>Dashboard</h1>
+
+<h2>{{frase}}</h2>
+
+<ul>
+  {{#each items}}
+  <li> ID: {{this.id}} - {{this.item}}</li>
+  {{/each}}
+</ul>
+
+{{#with post}}
+  <h1>{{title}}</h1>
+  <p>{{category}}</p>
+  <p>{{body}}</p>
+  <p>{{comments}}</p>
+{{/with}}
+
+<a href="/">Voltar</a>
